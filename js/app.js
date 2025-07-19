@@ -13,3 +13,12 @@ const addAmountInput = document.getElementById("addAmount");
 const withdrawAmountInput = document.getElementById("withdrawAmount");
 const transactionTable = document.getElementById("transactionTable");
 
+// Initial Balance and Transaction Log
+let balance = 0;
+let transactions = [];
+
+
+// Utility Functions
+function updateBalanceDisplay() {
+  balanceDisplay.textContent = `BDT ${balance}`;
+}
