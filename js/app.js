@@ -34,3 +34,17 @@ function logTransaction(type, amount) {
   transactions.unshift(transaction); // add to top
   renderTransactionTable();
 }
+
+function renderTransactionTable() {
+  transactionTable.innerHTML = "";
+  transactions.forEach((t) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="p-2 border-b border-gray-700">${t.date}</td>
+      <td class="p-2 border-b border-gray-700">${t.type}</td>
+      <td class="p-2 border-b border-gray-700">BDT ${t.amount}</td>
+      <td class="p-2 border-b border-gray-700">BDT ${t.currentBalance}</td>
+    `;
+    transactionTable.appendChild(row);
+  });
+}
