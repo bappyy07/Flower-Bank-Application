@@ -76,3 +76,23 @@ confirmAdd.addEventListener("click", () => {
   logTransaction("Add", amount);
   addAmountInput.value = "";
 });
+
+// Withdraw Money
+confirmWithdraw.addEventListener("click", () => {
+  const amount = parseFloat(withdrawAmountInput.value);
+  if (isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid positive amount.");
+    return;
+  }
+  if (amount > balance) {
+    alert("Insufficient balance.");
+    return;
+  }
+  balance -= amount;
+  updateBalanceDisplay();
+  logTransaction("Withdraw", amount);
+  withdrawAmountInput.value = "";
+});
+
+// Initial UI State
+updateBalanceDisplay();
